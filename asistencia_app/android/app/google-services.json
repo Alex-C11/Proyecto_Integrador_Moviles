@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "561155944910",
+    "project_id": "firelogincrud-f486d",
+    "storage_bucket": "firelogincrud-f486d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561155944910:android:d39da06f9cc7e84f2dfb9f",
+        "android_client_info": {
+          "package_name": "pe.edu.upeu.asistencia_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561155944910-c2uh3k4v9is6ngpn1krf362pkovhccgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC11tRtvjj5rMHX4X1xZuCSyYAU2_wMP_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561155944910-c2uh3k4v9is6ngpn1krf362pkovhccgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
