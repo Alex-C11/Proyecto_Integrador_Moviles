@@ -1,10 +1,13 @@
 
 import 'dart:ffi';
 
+import 'package:asistencia_app/ui/escuela/escuela_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../theme/AppTheme.dart';
 
 class QRCodeWidget extends StatefulWidget {
   const QRCodeWidget({super.key});
@@ -63,28 +66,46 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+
                   ElevatedButton(
                     onPressed: () {
-                      if (result.isNotEmpty) {
-                        Clipboard.setData(ClipboardData(text: result));
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text("copied to clipboard"),
-                          ),
-                        );
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainEscuela()),
+                      );
                     },
-                    child: Text("copy"),
+                    child: Text("Volver"),
                   ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      if (result.isNotEmpty) {
-                        final Uri _url = Uri.parse(result);
-                        await launchUrl(_url);
-                      }
-                    },
-                    child: Text("open"),
-                  ),
+                  IconButton(
+                      icon: Icon(Icons.task),
+                      color: AppTheme.themeData.colorScheme.primary,
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title:
+                                Text("Mensaje de confirmacion"),
+                                content: Text("Desea Registrase?"),
+                                actions: [
+                                  FloatingActionButton(
+                                    child: const Text('CANCEL'),
+                                    onPressed: () {
+                                      Navigator.of(context)
+                                          .pop('Failure');
+                                    },
+                                  ),
+                                  FloatingActionButton(
+                                      child: const Text('ACCEPT'),
+                                      onPressed: () {
+                                        Navigator.of(context)
+                                            .pop('Success');
+                                      })
+                                ],
+                              );
+                        });
+                      }),
                 ],
               ))
         ],

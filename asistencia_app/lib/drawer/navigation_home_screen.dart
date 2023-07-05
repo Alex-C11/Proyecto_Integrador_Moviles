@@ -1,4 +1,5 @@
 import 'package:asistencia_app/comp/CustomAppBar.dart';
+import 'package:asistencia_app/scaneo/home_screen.dart';
 import 'package:asistencia_app/scaneo/qr_code.dart';
 import 'package:asistencia_app/theme/AppTheme.dart';
 import 'package:asistencia_app/drawer/drawer_user_controller.dart';
@@ -90,6 +91,10 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       }else if (drawerIndex == DrawerIndex.qrcode) {
         setState(() {
           screenView = QRCodeWidget();
+        });
+      }else if (drawerIndex == DrawerIndex.generar) {
+        setState(() {
+          screenView = HomeScreen();
         });
       } else {
         //do in your way......

@@ -1,6 +1,7 @@
 import 'package:animated_floating_buttons/animated_floating_buttons.dart';
 import 'package:asistencia_app/apis/actividad_api.dart';
 import 'package:asistencia_app/comp/TabItem.dart';
+import 'package:asistencia_app/scaneo/qr_code.dart';
 import 'package:asistencia_app/ui/actividad/actividad_edit.dart';
 import 'package:asistencia_app/ui/actividad/actividad_form.dart';
 import 'package:flutter/material.dart';
@@ -196,6 +197,16 @@ class _ActividadUIState extends State<ActividadUI> {
                         trailing: Row(mainAxisSize: MainAxisSize.min,
                             //mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
+                              IconButton(
+                                  icon: Icon(Icons.qr_code),
+                                  color: AppTheme.themeData.colorScheme.primary,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => QRCodeWidget()),
+                                    ).then(onGoBack);
+                                  }),
                               IconButton(
                                   icon: Icon(Icons.edit),
                                   color: AppTheme.themeData.colorScheme.primary,

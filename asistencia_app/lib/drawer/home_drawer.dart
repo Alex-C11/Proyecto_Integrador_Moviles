@@ -58,6 +58,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(Icons.qr_code_scanner),
       ),
       DrawerList(
+        index: DrawerIndex.generar,
+        labelName: 'Generar Escaner',
+        icon: Icon(Icons.qr_code_scanner),
+      ),
+      DrawerList(
         index: DrawerIndex.About,
         labelName: 'Información',
         icon: Icon(Icons.info),
@@ -294,6 +299,7 @@ enum DrawerIndex {
   Invite,
   Testing,
   qrcode,
+  generar,
 }
 
 class DrawerList {

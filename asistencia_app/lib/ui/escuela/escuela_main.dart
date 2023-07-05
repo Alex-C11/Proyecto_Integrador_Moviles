@@ -3,6 +3,7 @@ import 'package:asistencia_app/apis/actividad_api.dart';
 import 'package:asistencia_app/apis/escuela_api.dart';
 import 'package:asistencia_app/comp/TabItem.dart';
 import 'package:asistencia_app/modelo/EscuelaModelo.dart';
+import 'package:asistencia_app/scaneo/qr_code.dart';
 import 'package:asistencia_app/ui/actividad/actividad_edit.dart';
 import 'package:asistencia_app/ui/actividad/actividad_form.dart';
 import 'package:asistencia_app/ui/escuela/escuela_edit.dart';
@@ -201,6 +202,16 @@ class _EscuelaUIState extends State<EscuelaUI> {
                             //mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               IconButton(
+                                  icon: Icon(Icons.qr_code),
+                                  color: AppTheme.themeData.colorScheme.primary,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => QRCodeWidget()),
+                                    ).then(onGoBack);
+                                  }),
+                              IconButton(
                                   icon: Icon(Icons.edit),
                                   color: AppTheme.themeData.colorScheme.primary,
                                   onPressed: () {
@@ -251,6 +262,7 @@ class _EscuelaUIState extends State<EscuelaUI> {
                                       }
                                     });
                                   })
+
                             ])),
                   ],
                 ),
